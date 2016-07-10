@@ -1,7 +1,0 @@
-[gerrit]
-host=gerrithub.io
-port=29418
-project=gerardduenas/geni.git
-defaultbranch=master
-defaultrebase=0
-
