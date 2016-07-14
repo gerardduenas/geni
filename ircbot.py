@@ -4,10 +4,12 @@ from functions import *
 from config import *
 
 def main():
-    if check_config() != 0:
-        print "Check the config.py file"
-    irc = connect(cfg)
-    while((text = irc.recv(4096))):
+    check_config()
+    irc = connect()
+    while(True):
+        text = irc.recv(4096)
+        if text.len() <= 1:
+            continue
         if text.find('PING') != -1:
             irc.send('PONG ' + text.split() [1] + '\r\n')
         for mark in cfg['marks']:
